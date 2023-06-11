@@ -1,14 +1,21 @@
 const container = document.querySelector(".container");
+const title = document.querySelector("title");
+
+const queryString = document.location.search;
+const params = new URLSearchParams(queryString);
+const i = params.get("i");
+console.log(i);
 
 const options = {
-	method: 'GET',
+	method: "GET",
 	headers: {
-		'X-RapidAPI-Key': '49ad5d6d25msh01f9ee2448254aep1a7c46jsnd802ec911cca',
-		'X-RapidAPI-Host': 'movie-database-alternative.p.rapidapi.com'
+		"X-RapidAPI-Key": "49ad5d6d25msh01f9ee2448254aep1a7c46jsnd802ec911cca",
+		"X-RapidAPI-Host": "movie-database-alternative.p.rapidapi.com"
 	}
 };
 
-const url = 'https://movie-database-alternative.p.rapidapi.com/?r=json&i=tt4154796';
+const url = "https://movie-database-alternative.p.rapidapi.com/" + "?r=json&i=" + i ;
+console.log(url);
 
 
 async function movieData(){
@@ -18,8 +25,13 @@ async function movieData(){
         console.log(data);
 
         container.innerHTML = "";
+        title.innerHTML = data.Title;
 
-        createHtml(data);
+
+        container.innerHTML =  `<h1>${data.Title}</h1>
+                                <p>${data.Plot}</p>
+                                <p>Actors: ${data.Actors}</p>`;
+        
 
     } catch (error) {
         container.innerHTML = "Sorry, an error occured! Try again later.";
@@ -28,9 +40,3 @@ async function movieData(){
 }
 
 movieData();
-
-function createHtml(data) {
-    container.innerHTML = `<h1>${data.Title}</h1>
-                                <p>${data.Plot}</p>
-                                <p>Actors: ${data.Actors}</p>`;
-}

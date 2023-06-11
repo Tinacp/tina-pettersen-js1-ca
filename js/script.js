@@ -25,7 +25,7 @@ async function getData(){
             console.log(result[i].Year);
             console.log(result[i].Type);
 
-            moviesContainer.innerHTML += `<a href="details.html?id=${result.imdbID}">
+            moviesContainer.innerHTML += `<a href="details.html?i=${result[i].imdbID}" class="movieDetail">
             <h1>${result[i].Title}</h1>
             <p>Realese year: ${result[i].Year}</p>
             <p>Type: ${result[i].Type}</p>

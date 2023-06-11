@@ -1,7 +1,60 @@
-Create a form with the following inputs and validation rules.
-Name - required
-Subject - must have a value with a minimum length of 10
-Email - must have a value and be formatted like an email address
-Address - must have a value with a minimum length of 25
-When the form on this page is submitted,
-write code to validate the input. If any of the inputs fail validation display an error message for the relevant input.
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/contact.css" />
+        <link rel="stylesheet" href="css/style.css" />
+        <title>Contact Us</title>
+    </head>
+    <body>
+        <nav>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="contact.html" class="current">Contact</a></li>
+            </ul>
+        </nav>
+        <main>
+            <div class="message"></div>
+
+            <form class="contactForm">
+              
+                <div>
+                    <label>
+                        Name
+                        <input name="name" id="name" required/>
+                    </label>
+                    <div class="form-error" id="nameError">Enter your name</div>
+                </div>
+
+                <div>
+                    <label>
+                        Subject
+                        <input name="subject" id="subject" />
+                    </label>
+                    <div class="form-error" id="subjectError">Subject must be at least 10 characters</div>
+                </div>
+
+                <div>
+                    <label>
+                        Email
+                        <input name="email" id="email" />
+                    </label>
+                    <div class="form-error" id="emailError">Enter a valid email address</div>
+                </div>
+
+                <div>
+                    <label>
+                        Adress
+                        <input name="adress" id="adress" />
+                    </label>
+                    <div class="form-error" id="adressError">Adress must be at least 25 characters</div>
+                </div>
+
+                <button>Submit</button>
+            </form>
+        </main>
+        <script src="js/contact.js"></script>
+    </body>
+</html>
